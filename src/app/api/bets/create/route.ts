@@ -8,6 +8,7 @@ import { z } from 'zod'
 const createBetSchema = z.object({
     poolId: z.string(),
     predictedDate: z.string(),
+    isDonation: z.boolean().optional().default(false),
 })
 
 export async function POST(req: NextRequest) {
@@ -19,7 +20,7 @@ export async function POST(req: NextRequest) {
         }
 
         const body = await req.json()
-        const { poolId, predictedDate } = createBetSchema.parse(body)
+        const { poolId, predictedDate, isDonation } = createBetSchema.parse(body)
 
         // Check if pool exists and is active
         const pool = await prisma.bettingPool.findUnique({
@@ -55,6 +56,7 @@ export async function POST(req: NextRequest) {
                 userId: session.user.id,
                 predictedDate: new Date(predictedDate),
                 isPaid: false,
+                isDonation: isDonation || false,
             },
         })
 

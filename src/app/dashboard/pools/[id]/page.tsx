@@ -224,7 +224,12 @@ export default async function PoolManagementPage(props: {
                                         </div>
                                         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
                                             {bets.map((bet) => (
-                                                <div key={bet.id} className="bg-purple-50 rounded-lg p-3">
+                                                <div key={bet.id} className="bg-purple-50 rounded-lg p-3 relative">
+                                                    {bet.isDonation && (
+                                                        <div className="absolute top-2 right-2 bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
+                                                            💝 Darowizna
+                                                        </div>
+                                                    )}
                                                     <div className="font-semibold">{bet.user.name || 'Anonim'}</div>
                                                     <div className="text-sm text-gray-600">{bet.user.email}</div>
                                                 </div>

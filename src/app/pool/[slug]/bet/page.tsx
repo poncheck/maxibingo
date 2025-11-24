@@ -17,6 +17,7 @@ export default function BetPage({ params }: { params: Promise<{ slug: string }> 
 
         const formData = new FormData(e.currentTarget)
         const predictedDate = formData.get('predictedDate') as string
+        const isDonation = formData.get('isDonation') === 'on'
 
         try {
             // First, get pool details
@@ -33,6 +34,7 @@ export default function BetPage({ params }: { params: Promise<{ slug: string }> 
                 body: JSON.stringify({
                     poolId: pool.id,
                     predictedDate,
+                    isDonation,
                 }),
             })
 
@@ -99,6 +101,24 @@ export default function BetPage({ params }: { params: Promise<{ slug: string }> 
                             <p className="text-sm text-gray-500 mt-2">
                                 💡 Wskazówka: Możesz typować dowolną datę, nie tylko planowaną datę porodu
                             </p>
+                        </div>
+
+                        <div className="bg-green-50 border-2 border-green-200 rounded-lg p-4">
+                            <label className="flex items-start gap-3 cursor-pointer">
+                                <input
+                                    type="checkbox"
+                                    name="isDonation"
+                                    className="mt-1 w-5 h-5 text-green-600 border-gray-300 rounded focus:ring-green-500"
+                                />
+                                <div>
+                                    <div className="font-semibold text-green-900">
+                                        💝 Przekaż wygraną na dziecko
+                                    </div>
+                                    <div className="text-sm text-green-700 mt-1">
+                                        Jeśli wygram, chcę przekazać całą wygraną na dziecko (twórcy puli)
+                                    </div>
+                                </div>
+                            </label>
                         </div>
 
                         <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">

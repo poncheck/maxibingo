@@ -121,6 +121,7 @@ model Bet {
   payment         Payment?    @relation(fields: [paymentId], references: [id])
   
   isPaid          Boolean     @default(false)
+  isDonation      Boolean     @default(false) // If true, winner donates to baby
   
   createdAt       DateTime    @default(now())
   
