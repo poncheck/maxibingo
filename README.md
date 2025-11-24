@@ -21,6 +21,32 @@ MaxiBingo to aplikacja do organizowania zakładów na datę urodzenia dziecka. P
 - **Email**: Resend
 - **Styling**: TailwindCSS
 
+## 🚀 Szybki start
+
+Po sklonowaniu repozytorium:
+
+```bash
+# 1. Skopiuj przykładowy plik .env
+cp .env.example .env
+
+# 2. Edytuj .env i ustaw wymagane zmienne
+# Minimum wymagane:
+# - DATABASE_URL (domyślnie: "file:./dev.db")
+# - NEXTAUTH_SECRET (wygeneruj: openssl rand -base64 32)
+# - STRIPE_BYPASS_MODE="true" (dla testów bez Stripe)
+
+# 3. Zainstaluj zależności
+npm install
+
+# 4. Uruchom migracje bazy danych
+npx prisma migrate dev
+
+# 5. Uruchom serwer
+npm run dev
+```
+
+Aplikacja będzie dostępna na http://localhost:3000
+
 ## 📦 Instalacja
 
 ```bash
