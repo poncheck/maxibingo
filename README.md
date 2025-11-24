@@ -1,36 +1,91 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎯 MaxiBingo
 
-## Getting Started
+MaxiBingo to aplikacja do organizowania zakładów na datę urodzenia dziecka. Platforma umożliwia tworzenie prywatnych pul zakładów, w których uczestnicy typują dokładną datę narodzin.
 
-First, run the development server:
+## ✨ Funkcje
+
+- 👶 **Tworzenie pul zakładów** - organizuj własne pule dla przyjaciół i rodziny
+- 🎯 **Typowanie daty** - każdy uczestnik wybiera swoją datę
+- 💰 **Bezpieczne płatności** - integracja ze Stripe (lub tryb testowy)
+- 🏆 **Automatyczne wyłanianie zwycięzców** - system sam określa zwycięzcę po deklaracji urodzenia
+- 📧 **Powiadomienia email** - automatyczne maile o zakładach i wynikach
+- 🔐 **Autoryzacja** - logowanie przez Google, Facebook lub email (Magic Links)
+
+## 🚀 Technologie
+
+- **Framework**: Next.js 16 (App Router)
+- **Język**: TypeScript
+- **Baza danych**: SQLite + Prisma ORM
+- **Autoryzacja**: NextAuth.js v5
+- **Płatności**: Stripe
+- **Email**: Resend
+- **Styling**: TailwindCSS
+
+## 📦 Instalacja
 
 ```bash
+# Sklonuj repozytorium
+git clone https://github.com/twoj-username/maxibingo.git
+cd maxibingo
+
+# Zainstaluj zależności
+npm install
+
+# Skonfiguruj bazę danych
+npx prisma generate
+npx prisma migrate dev
+
+# Uruchom serwer deweloperski
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ⚙️ Konfiguracja
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Utwórz plik `.env` w głównym katalogu:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+# Database
+DATABASE_URL="file:./dev.db"
 
-## Learn More
+# NextAuth
+NEXTAUTH_SECRET="your-secret-key"
 
-To learn more about Next.js, take a look at the following resources:
+# Google OAuth (opcjonalne)
+GOOGLE_CLIENT_ID="your-google-client-id"
+GOOGLE_CLIENT_SECRET="your-google-client-secret"
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Facebook OAuth (opcjonalne)
+FACEBOOK_CLIENT_ID="your-facebook-client-id"
+FACEBOOK_CLIENT_SECRET="your-facebook-client-secret"
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+# Resend (email)
+RESEND_API_KEY="your-resend-api-key"
+EMAIL_FROM="onboarding@resend.dev"
 
-## Deploy on Vercel
+# Stripe (opcjonalne - użyj trybu testowego)
+STRIPE_SECRET_KEY="sk_test_..."
+STRIPE_PUBLISHABLE_KEY="pk_test_..."
+STRIPE_WEBHOOK_SECRET="whsec_..."
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+# Tryb testowy (pomija Stripe)
+STRIPE_BYPASS_MODE="true"
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+# App URL
+NEXT_PUBLIC_APP_URL="http://localhost:3000"
+```
+
+## 🧪 Tryb testowy
+
+Aplikacja posiada tryb testowy, który pozwala na pełne testowanie bez konfiguracji Stripe:
+
+1. Ustaw `STRIPE_BYPASS_MODE="true"` w `.env`
+2. Zakłady będą automatycznie oznaczane jako opłacone
+3. Możesz testować całą funkcjonalność aplikacji
+
+## 📝 Licencja
+
+MIT
+
+## 👨‍💻 Autor
+
+Stworzono z ❤️ dla przyszłych rodziców

@@ -1,0 +1,176 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// NextAuth.js Models
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  name          String?
+  emailVerified DateTime?
+  image         String?
+  accounts      Account[]
+  sessions      Session[]
+  
+  // User can create pools (as parent)
+  createdPools  BettingPool[] @relation("PoolCreator")
+  
+  // User can place bets
+  bets          Bet[]
+  
+  // User can be a winner
+  winners       Winner[]
+  
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@unique([provider, providerAccountId])
+  @@index([userId])
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  
+  @@index([userId])
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+}
+
+// Betting Pool Models
+model BettingPool {
+  id                String   @id @default(cuid())
+  creatorId         String
+  creator           User     @relation("PoolCreator", fields: [creatorId], references: [id])
+  
+  // Pool details
+  babyName          String?
+  expectedDueDate   DateTime
+  betAmount         Decimal
+  
+  // Pool status
+  status            String     @default("ACTIVE") // SQLite doesn't support enums well, using String
+  actualBirthDate   DateTime?
+  
+  // Shareable link
+  slug              String   @unique
+  
+  // Bets in this pool
+  bets              Bet[]
+  
+  // Payments
+  payments          Payment[]
+  
+  // Winners (after birth date is declared)
+  winners           Winner[]
+  
+  createdAt         DateTime @default(now())
+  updatedAt         DateTime @updatedAt
+  
+  @@index([slug])
+  @@index([creatorId])
+  @@index([status])
+}
+
+model Bet {
+  id              String      @id @default(cuid())
+  poolId          String
+  pool            BettingPool @relation(fields: [poolId], references: [id], onDelete: Cascade)
+  
+  userId          String
+  user            User        @relation(fields: [userId], references: [id])
+  
+  predictedDate   DateTime
+  
+  // Payment tracking
+  paymentId       String?     @unique
+  payment         Payment?    @relation(fields: [paymentId], references: [id])
+  
+  isPaid          Boolean     @default(false)
+  
+  createdAt       DateTime    @default(now())
+  
+  @@unique([poolId, userId]) // One bet per user per pool
+  @@index([poolId])
+  @@index([userId])
+  @@index([predictedDate])
+}
+
+model Payment {
+  id                String      @id @default(cuid())
+  poolId            String
+  pool              BettingPool @relation(fields: [poolId], references: [id])
+  
+  bet               Bet?
+  
+  // Stripe details
+  stripePaymentId   String      @unique
+  stripeSessionId   String?     @unique
+  amount            Decimal
+  platformFee       Decimal
+  netAmount         Decimal
+  
+  status            String      @default("PENDING") // Using String instead of Enum
+  
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  
+  @@index([poolId])
+  @@index([stripePaymentId])
+  @@index([status])
+}
+
+model Winner {
+  id              String      @id @default(cuid())
+  poolId          String
+  pool            BettingPool @relation(fields: [poolId], references: [id], onDelete: Cascade)
+  
+  userId          String
+  user            User        @relation(fields: [userId], references: [id])
+  betId           String
+  
+  // Payout details
+  payoutAmount    Decimal
+  stripePayout    String?     // Stripe payout/transfer ID
+  payoutStatus    String      @default("PENDING") // Using String instead of Enum
+  
+  createdAt       DateTime    @default(now())
+  updatedAt       DateTime    @updatedAt
+  
+  @@index([poolId])
+  @@index([userId])
+}
