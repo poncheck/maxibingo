@@ -14,8 +14,8 @@
 Po utworzeniu repozytorium, GitHub pokaże Ci instrukcje. Użyj tych komend:
 
 ```bash
-# Dodaj remote (zamień YOUR_USERNAME na swój username GitHub)
-git remote add origin https://github.com/YOUR_USERNAME/maxibingo.git
+# Dodaj remote
+git remote add origin https://github.com/poncheck/maxibingo.git
 
 # Zmień nazwę brancha na main (jeśli potrzeba)
 git branch -M main
@@ -27,7 +27,7 @@ git push -u origin main
 ## Krok 3: Gotowe! 🎉
 
 Twoje repozytorium jest teraz na GitHub pod adresem:
-`https://github.com/YOUR_USERNAME/maxibingo`
+`https://github.com/poncheck/maxibingo`
 
 ## Opcjonalnie: Dodaj opis i tematy
 

@@ -25,7 +25,7 @@ MaxiBingo to aplikacja do organizowania zakładów na datę urodzenia dziecka. P
 
 ```bash
 # Sklonuj repozytorium
-git clone https://github.com/twoj-username/maxibingo.git
+git clone https://github.com/poncheck/maxibingo.git
 cd maxibingo
 
 # Zainstaluj zależności
