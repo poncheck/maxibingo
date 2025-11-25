@@ -12,7 +12,7 @@ export default async function LandingPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
-                👶 MaxiBingo
+                👶 BabyBingo
               </Link>
             </div>
             <div className="flex items-center gap-4">
@@ -158,7 +158,7 @@ export default async function LandingPage() {
       <section className="py-20 bg-gradient-to-br from-purple-50 to-pink-50">
         <div className="max-w-7xl mx-auto px-4">
           <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Dlaczego MaxiBingo?
+            Dlaczego BabyBingo?
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-smooth">
@@ -235,7 +235,7 @@ export default async function LandingPage() {
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-xl font-bold mb-4">MaxiBingo</h3>
+              <h3 className="text-xl font-bold mb-4">BabyBingo</h3>
               <p className="text-gray-400">
                 Zabawne zakłady na datę urodzenia dziecka dla przyjaciół i rodziny.
               </p>
@@ -263,7 +263,7 @@ export default async function LandingPage() {
             </div>
           </div>
           <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>© {new Date().getFullYear()} MaxiBingo. Wszystkie prawa zastrzeżone.</p>
+            <p>© {new Date().getFullYear()} BabyBingo. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>

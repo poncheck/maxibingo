@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "MaxiBingo - Zakłady na datę urodzenia dziecka",
+  title: "BabyBingo - Zakłady na datę urodzenia dziecka",
   description: "Stwórz pulę zakładów na datę urodzenia Twojego dziecka. Przyjaciele i rodzina typują datę, a zwycięzca zgarnia całą pulę!",
 };
 

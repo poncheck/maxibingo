@@ -12,7 +12,7 @@ export default async function SignInPage(props: {
             <div className="max-w-md w-full">
                 <div className="text-center mb-8">
                     <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent inline-block">
-                        👶 MaxiBingo
+                        👶 BabyBingo
                     </Link>
                     <h1 className="text-3xl font-bold mt-6 mb-2">Zaloguj się</h1>
                     <p className="text-gray-600">Wybierz sposób logowania</p>

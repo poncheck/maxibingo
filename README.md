@@ -51,8 +51,8 @@ Aplikacja będzie dostępna na http://localhost:3000
 
 ```bash
 # Sklonuj repozytorium
-git clone https://github.com/poncheck/maxibingo.git
-cd maxibingo
+git clone https://github.com/poncheck/babybingo.git
+cd babybingo
 
 # Zainstaluj zależności
 npm install

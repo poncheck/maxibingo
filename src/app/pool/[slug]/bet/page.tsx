@@ -62,7 +62,7 @@ export default function BetPage({ params }: { params: Promise<{ slug: string }> 
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         <Link href="/" className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
-                            👶 MaxiBingo
+                            👶 BabyBingo
                         </Link>
                         <Link
                             href={`/pool/${slug}`}

@@ -7,7 +7,7 @@ export default function TermsPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         <Link href="/" className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
-                            👶 MaxiBingo
+                            👶 BabyBingo
                         </Link>
                     </div>
                 </div>
@@ -21,7 +21,7 @@ export default function TermsPage() {
                         <section>
                             <h2 className="text-2xl font-bold mb-4">1. Definicje</h2>
                             <p>
-                                <strong>MaxiBingo</strong> - platforma internetowa umożliwiająca organizację zbiórek grupowych na cele związane z narodzinami dziecka.
+                                <strong>BabyBingo</strong> - platforma internetowa umożliwiająca organizację zbiórek grupowych na cele związane z narodzinami dziecka.
                             </p>
                             <p>
                                 <strong>Organizator</strong> - osoba tworząca zbiórkę (rodzic oczekujący dziecka).
@@ -43,7 +43,7 @@ export default function TermsPage() {
                         <section>
                             <h2 className="text-2xl font-bold mb-4">2. Charakter Zbiórki</h2>
                             <p>
-                                MaxiBingo umożliwia organizację zbiórek grupowych na konkretne cele związane z narodzinami dziecka. Zbiórka łączy:
+                                BabyBingo umożliwia organizację zbiórek grupowych na konkretne cele związane z narodzinami dziecka. Zbiórka łączy:
                             </p>
                             <ul className="list-disc pl-6 space-y-2">
                                 <li><strong>Cel charytatywny/prezentowy</strong> - zebrane środki służą realizacji określonego celu (np. sesja zdjęciowa, wyprawka)</li>
@@ -110,7 +110,7 @@ export default function TermsPage() {
                         <section>
                             <h2 className="text-2xl font-bold mb-4">6. Prowizja Platformy</h2>
                             <p>
-                                Platforma MaxiBingo pobiera prowizję w wysokości <strong>1% od każdej wpłaty</strong> na pokrycie kosztów:
+                                Platforma BabyBingo pobiera prowizję w wysokości <strong>1% od każdej wpłaty</strong> na pokrycie kosztów:
                             </p>
                             <ul className="list-disc pl-6 space-y-2">
                                 <li>Opłat bramki płatniczej Stripe</li>
@@ -160,7 +160,7 @@ export default function TermsPage() {
                         <section>
                             <h2 className="text-2xl font-bold mb-4">10. Odpowiedzialność</h2>
                             <p>
-                                MaxiBingo działa jako platforma techniczna umożliwiająca organizację zbiórek grupowych. Platforma:
+                                BabyBingo działa jako platforma techniczna umożliwiająca organizację zbiórek grupowych. Platforma:
                             </p>
                             <ul className="list-disc pl-6 space-y-2">
                                 <li>Nie ponosi odpowiedzialności za spory między uczestnikami</li>
@@ -195,7 +195,7 @@ export default function TermsPage() {
                         <section className="bg-green-50 border border-green-200 rounded-lg p-6 mt-8">
                             <h3 className="font-bold text-lg mb-2">✅ Charakter Prawny</h3>
                             <p className="text-sm">
-                                Zbiórki organizowane przez MaxiBingo mają charakter <strong>charytatywny/prezentowy</strong> z elementem zabawy (konkurs na datę).
+                                Zbiórki organizowane przez BabyBingo mają charakter <strong>charytatywny/prezentowy</strong> z elementem zabawy (konkurs na datę).
                                 Uczestnictwo jest dobrowolne i odbywa się między znajomymi i rodziną.
                                 Zebrane środki służą realizacji konkretnego celu określonego przez organizatora.
                                 Platforma <strong>nie prowadzi działalności hazardowej</strong> w rozumieniu ustawy o grach hazardowych,

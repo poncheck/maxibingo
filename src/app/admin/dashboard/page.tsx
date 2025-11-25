@@ -44,7 +44,7 @@ export default async function AdminDashboard() {
         <div className="space-y-8">
             <div>
                 <h1 className="text-3xl font-bold text-gray-900">Dashboard Admina</h1>
-                <p className="text-gray-600 mt-2">Przegląd aktywności platformy MaxiBingo</p>
+                <p className="text-gray-600 mt-2">Przegląd aktywności platformy BabyBingo</p>
             </div>
 
             {/* Stats Grid */}

@@ -75,7 +75,7 @@ export function betConfirmationEmail(params: {
             <p>Powodzenia! 🍀</p>
           </div>
           <div class="footer">
-            <p>© ${new Date().getFullYear()} MaxiBingo. Wszystkie prawa zastrzeżone.</p>
+            <p>© ${new Date().getFullYear()} BabyBingo. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
       </body>

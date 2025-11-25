@@ -6,7 +6,7 @@ export default function SignOutPage() {
             <div className="max-w-md w-full">
                 <div className="text-center mb-8">
                     <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent inline-block">
-                        👶 MaxiBingo
+                        👶 BabyBingo
                     </Link>
                 </div>
 
@@ -14,7 +14,7 @@ export default function SignOutPage() {
                     <div className="text-6xl mb-6">👋</div>
                     <h1 className="text-3xl font-bold mb-4">Zostałeś wylogowany</h1>
                     <p className="text-gray-600 mb-8">
-                        Dziękujemy za skorzystanie z MaxiBingo!
+                        Dziękujemy za skorzystanie z BabyBingo!
                     </p>
                     <div className="space-y-3">
                         <Link

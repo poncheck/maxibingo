@@ -7,7 +7,7 @@ export default function PrivacyPage() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-16">
                         <Link href="/" className="text-2xl font-bold gradient-primary bg-clip-text text-transparent">
-                            👶 MaxiBingo
+                            👶 BabyBingo
                         </Link>
                     </div>
                 </div>
@@ -21,7 +21,7 @@ export default function PrivacyPage() {
                         <section>
                             <h2 className="text-2xl font-bold mb-4">1. Administrator Danych</h2>
                             <p>
-                                Administratorem danych osobowych przetwarzanych w ramach platformy MaxiBingo jest [Nazwa firmy/osoby],
+                                Administratorem danych osobowych przetwarzanych w ramach platformy BabyBingo jest [Nazwa firmy/osoby],
                                 z siedzibą w [Adres], email: kontakt@maxibingo.com.
                             </p>
                         </section>

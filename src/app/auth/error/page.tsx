@@ -31,7 +31,7 @@ export default async function AuthErrorPage(props: {
             <div className="max-w-md w-full">
                 <div className="text-center mb-8">
                     <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent inline-block">
-                        👶 MaxiBingo
+                        👶 BabyBingo
                     </Link>
                 </div>
 
