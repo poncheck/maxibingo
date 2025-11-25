@@ -8,6 +8,7 @@ export default auth((req) => {
     const isAuthPage = req.nextUrl.pathname.startsWith('/auth')
     const isDashboard = req.nextUrl.pathname.startsWith('/dashboard')
     const isBetPage = req.nextUrl.pathname.includes('/bet')
+    const isAdminPage = req.nextUrl.pathname.startsWith('/admin')
 
     // Redirect logged-in users away from auth pages
     if (isAuthPage && isLoggedIn) {
@@ -18,6 +19,17 @@ export default auth((req) => {
     if ((isDashboard || isBetPage) && !isLoggedIn) {
         const callbackUrl = encodeURIComponent(req.nextUrl.pathname)
         return NextResponse.redirect(new URL(`/auth/signin?callbackUrl=${callbackUrl}`, req.url))
+    }
+
+    // Protect admin pages - require login AND admin status
+    if (isAdminPage) {
+        if (!isLoggedIn) {
+            return NextResponse.redirect(new URL('/auth/signin', req.url))
+        }
+        // Check if user is admin
+        if (!req.auth?.user?.isAdmin) {
+            return NextResponse.redirect(new URL('/dashboard', req.url))
+        }
     }
 
     return NextResponse.next()
