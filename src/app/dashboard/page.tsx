@@ -1,4 +1,4 @@
-import { auth } from '@/auth'
+import { auth, signOut } from '@/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
 import Link from 'next/link'
@@ -42,12 +42,17 @@ export default async function DashboardPage() {
                         </Link>
                         <div className="flex items-center gap-4">
                             <span className="text-gray-700">Cześć, {session.user.name || session.user.email}</span>
-                            <Link
-                                href="/api/auth/signout"
-                                className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-smooth"
-                            >
-                                Wyloguj
-                            </Link>
+                            <form action={async () => {
+                                'use server'
+                                await signOut()
+                            }}>
+                                <button
+                                    type="submit"
+                                    className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-smooth"
+                                >
+                                    Wyloguj
+                                </button>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -112,12 +117,12 @@ export default async function DashboardPage() {
                                     <div className="flex items-center justify-between pt-4 border-t border-gray-200">
                                         <span
                                             className={`px-3 py-1 rounded-full text-sm font-semibold ${pool.status === 'ACTIVE'
-                                                    ? 'bg-green-100 text-green-700'
-                                                    : pool.status === 'CLOSED'
-                                                        ? 'bg-yellow-100 text-yellow-700'
-                                                        : pool.status === 'COMPLETED'
-                                                            ? 'bg-blue-100 text-blue-700'
-                                                            : 'bg-gray-100 text-gray-700'
+                                                ? 'bg-green-100 text-green-700'
+                                                : pool.status === 'CLOSED'
+                                                    ? 'bg-yellow-100 text-yellow-700'
+                                                    : pool.status === 'COMPLETED'
+                                                        ? 'bg-blue-100 text-blue-700'
+                                                        : 'bg-gray-100 text-gray-700'
                                                 }`}
                                         >
                                             {pool.status === 'ACTIVE' && 'Aktywna'}

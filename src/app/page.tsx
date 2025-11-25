@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { auth } from '@/auth'
+import { auth, signOut } from '@/auth'
 
 export default async function LandingPage() {
   const session = await auth()
@@ -24,12 +24,17 @@ export default async function LandingPage() {
                   >
                     Dashboard
                   </Link>
-                  <Link
-                    href="/api/auth/signout"
-                    className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-smooth"
-                  >
-                    Wyloguj
-                  </Link>
+                  <form action={async () => {
+                    'use server'
+                    await signOut()
+                  }}>
+                    <button
+                      type="submit"
+                      className="px-4 py-2 rounded-lg bg-gray-100 hover:bg-gray-200 transition-smooth"
+                    >
+                      Wyloguj
+                    </button>
+                  </form>
                 </>
               ) : (
                 <>
