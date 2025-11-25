@@ -82,6 +82,11 @@ model BettingPool {
   expectedDueDate   DateTime
   betAmount         Decimal
   
+  // Fundraising goal
+  goalTitle         String   @default("Prezent dla dziecka")
+  goalDescription   String?
+  goalCost          Decimal?
+  
   // Pool status
   status            String     @default("ACTIVE") // SQLite doesn't support enums well, using String
   actualBirthDate   DateTime?

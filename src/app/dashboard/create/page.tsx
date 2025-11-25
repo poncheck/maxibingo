@@ -19,6 +19,9 @@ export default function CreatePoolPage() {
             babyName: formData.get('babyName') as string,
             expectedDueDate: formData.get('expectedDueDate') as string,
             betAmount: parseFloat(formData.get('betAmount') as string),
+            goalTitle: formData.get('goalTitle') as string,
+            goalDescription: formData.get('goalDescription') as string,
+            goalCost: formData.get('goalCost') ? parseFloat(formData.get('goalCost') as string) : undefined,
         }
 
         try {
