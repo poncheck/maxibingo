@@ -26,6 +26,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         signIn: '/auth/signin',
         verifyRequest: '/auth/verify-request',
         signOut: '/auth/signout',
+        error: '/auth/error',
     },
     callbacks: {
         async redirect({ url, baseUrl }) {
