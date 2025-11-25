@@ -114,13 +114,13 @@ export default function CreatePoolPage() {
                                 id="betAmount"
                                 name="betAmount"
                                 required
-                                min="1"
+                                min="2"
                                 step="0.01"
                                 placeholder="50.00"
                                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-smooth"
                             />
                             <p className="text-sm text-gray-500 mt-1">
-                                Każdy uczestnik wpłaci tę kwotę, aby wziąć udział w zabawie
+                                Minimalna kwota: 2 PLN (wymaganie bramki płatniczej)
                             </p>
                         </div>
 
