@@ -1,4 +1,5 @@
-import { auth } from '@/auth'
+import { auth, signOut } from '@/auth'
+import Image from 'next/image'
 import { prisma } from '@/lib/prisma'
 import { redirect, notFound } from 'next/navigation'
 import Link from 'next/link'
@@ -68,7 +69,7 @@ export default async function PoolManagementPage(props: {
         return sum + parseFloat(payment.netAmount.toString())
     }, 0)
 
-    const shareUrl = `${process.env.NEXT_PUBLIC_APP_URL}/pool/${pool.slug}`
+    const shareUrl = `${process.env.NEXT_PUBLIC_APP_URL} /pool/${pool.slug} `
 
     // Group bets by date
     const betsByDate: Record<string, typeof pool.bets> = {}
@@ -113,14 +114,14 @@ export default async function PoolManagementPage(props: {
                             </p>
                         </div>
                         <span
-                            className={`px-4 py-2 rounded-full text-sm font-semibold ${pool.status === 'ACTIVE'
-                                ? 'bg-green-100 text-green-700'
-                                : pool.status === 'CLOSED'
-                                    ? 'bg-yellow-100 text-yellow-700'
-                                    : pool.status === 'COMPLETED'
-                                        ? 'bg-blue-100 text-blue-700'
-                                        : 'bg-gray-100 text-gray-700'
-                                }`}
+                            className={`px - 4 py - 2 rounded - full text - sm font - semibold ${pool.status === 'ACTIVE'
+                                    ? 'bg-green-100 text-green-700'
+                                    : pool.status === 'CLOSED'
+                                        ? 'bg-yellow-100 text-yellow-700'
+                                        : pool.status === 'COMPLETED'
+                                            ? 'bg-blue-100 text-blue-700'
+                                            : 'bg-gray-100 text-gray-700'
+                                } `}
                         >
                             {pool.status === 'ACTIVE' && 'Aktywna'}
                             {pool.status === 'CLOSED' && 'Zamknięta'}
@@ -167,80 +168,86 @@ export default async function PoolManagementPage(props: {
                                 className="px-6 py-2 bg-[#1877F2] text-white rounded-lg hover:bg-[#166FE5] transition-smooth font-semibold"
                             >
                                 📱 Facebook
-                            </a>
-                        </div>
-                    </div>
+                            </a >
+                        </div >
+                    </div >
 
                     {/* Declare Birth Button */}
-                    {pool.status === 'ACTIVE' && (
-                        <div className="border-t border-gray-200 pt-6 mt-6">
-                            <DeclareBirthButton poolId={pool.id} />
-                        </div>
-                    )}
+                    {
+                        pool.status === 'ACTIVE' && (
+                            <div className="border-t border-gray-200 pt-6 mt-6">
+                                <DeclareBirthButton poolId={pool.id} />
+                            </div>
+                        )
+                    }
 
                     {/* Winners Section */}
-                    {pool.winners.length > 0 && (
-                        <div className="border-t border-gray-200 pt-6 mt-6">
-                            <h3 className="font-semibold text-xl mb-4">🏆 Zwycięzcy:</h3>
-                            <div className="space-y-3">
-                                {pool.winners.map((winner) => (
-                                    <div key={winner.id} className="bg-gradient-accent text-white rounded-xl p-4">
-                                        <div className="flex justify-between items-center">
-                                            <div>
-                                                <div className="font-bold text-lg">{winner.user.name || winner.user.email}</div>
-                                                <div className="text-sm opacity-90">
-                                                    Wypłata: {formatCurrency(parseFloat(winner.payoutAmount.toString()))}
+                    {
+                        pool.winners.length > 0 && (
+                            <div className="border-t border-gray-200 pt-6 mt-6">
+                                <h3 className="font-semibold text-xl mb-4">🏆 Zwycięzcy:</h3>
+                                <div className="space-y-3">
+                                    {pool.winners.map((winner) => (
+                                        <div key={winner.id} className="bg-gradient-accent text-white rounded-xl p-4">
+                                            <div className="flex justify-between items-center">
+                                                <div>
+                                                    <div className="font-bold text-lg">{winner.user.name || winner.user.email}</div>
+                                                    <div className="text-sm opacity-90">
+                                                        Wypłata: {formatCurrency(parseFloat(winner.payoutAmount.toString()))}
+                                                    </div>
+                                                </div>
+                                                <div className="text-sm">
+                                                    Status: {winner.payoutStatus === 'COMPLETED' ? '✅ Wypłacono' : '⏳ W trakcie'}
                                                 </div>
                                             </div>
-                                            <div className="text-sm">
-                                                Status: {winner.payoutStatus === 'COMPLETED' ? '✅ Wypłacono' : '⏳ W trakcie'}
-                                            </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                    )}
-                </div>
+                        )
+                    }
+                </div >
 
                 {/* Participants List */}
-                <div className="bg-white rounded-2xl shadow-xl p-8">
+                < div className="bg-white rounded-2xl shadow-xl p-8" >
                     <h2 className="text-2xl font-bold mb-6">Uczestnicy i ich typy</h2>
 
-                    {pool.bets.length === 0 ? (
-                        <div className="text-center py-12 text-gray-500">
-                            <div className="text-5xl mb-4">🎯</div>
-                            <p>Jeszcze nikt nie dołączył do puli</p>
-                            <p className="text-sm mt-2">Udostępnij link znajomym!</p>
-                        </div>
-                    ) : (
-                        <div className="space-y-4">
-                            {Object.entries(betsByDate)
-                                .sort(([a], [b]) => a.localeCompare(b))
-                                .map(([date, bets]) => (
-                                    <div key={date} className="border border-gray-200 rounded-xl p-4">
-                                        <div className="font-semibold text-lg mb-3 text-purple-900">
-                                            📅 {formatDate(new Date(date))} ({bets.length} {bets.length === 1 ? 'osoba' : 'osób'})
+                    {
+                        pool.bets.length === 0 ? (
+                            <div className="text-center py-12 text-gray-500">
+                                <div className="text-5xl mb-4">🎯</div>
+                                <p>Jeszcze nikt nie dołączył do puli</p>
+                                <p className="text-sm mt-2">Udostępnij link znajomym!</p>
+                            </div>
+                        ) : (
+                            <div className="space-y-4">
+                                {Object.entries(betsByDate)
+                                    .sort(([a], [b]) => a.localeCompare(b))
+                                    .map(([date, bets]) => (
+                                        <div key={date} className="border border-gray-200 rounded-xl p-4">
+                                            <div className="font-semibold text-lg mb-3 text-purple-900">
+                                                📅 {formatDate(new Date(date))} ({bets.length} {bets.length === 1 ? 'osoba' : 'osób'})
+                                            </div>
+                                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+                                                {bets.map((bet) => (
+                                                    <div key={bet.id} className="bg-purple-50 rounded-lg p-3 relative">
+                                                        {bet.isDonation && (
+                                                            <div className="absolute top-2 right-2 bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
+                                                                💝 Darowizna
+                                                            </div>
+                                                        )}
+                                                        <div className="font-semibold">{bet.user.name || 'Anonim'}</div>
+                                                        <div className="text-sm text-gray-600">{bet.user.email}</div>
+                                                    </div>
+                                                ))}
+                                            </div>
                                         </div>
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-                                            {bets.map((bet) => (
-                                                <div key={bet.id} className="bg-purple-50 rounded-lg p-3 relative">
-                                                    {bet.isDonation && (
-                                                        <div className="absolute top-2 right-2 bg-green-100 text-green-700 text-xs font-semibold px-2 py-1 rounded-full">
-                                                            💝 Darowizna
-                                                        </div>
-                                                    )}
-                                                    <div className="font-semibold">{bet.user.name || 'Anonim'}</div>
-                                                    <div className="text-sm text-gray-600">{bet.user.email}</div>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                ))}
-                        </div>
-                    )}
-                </div>
-            </div>
-        </div>
+                                    ))}
+                            </div>
+                        )
+                    }
+                </div >
+            </div >
+        </div >
     )
 }

@@ -1,6 +1,8 @@
 'use client'
 
 import { useState } from 'react'
+import { auth, signOut } from '@/auth'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 

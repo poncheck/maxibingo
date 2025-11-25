@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { formatCurrency, formatDate } from '@/lib/utils'
 import { auth } from '@/auth'
+import Image from 'next/image'
 import BetButton from './BetButton'
 
 export default async function PublicPoolPage(props: {
@@ -119,7 +120,7 @@ export default async function PublicPoolPage(props: {
                 <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
                     <div className="text-center mb-8">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                            {pool.babyName ? `Zbiórka na powitanie ${pool.babyName}` : 'Zbiórka na powitanie dziecka'}
+                            {pool.babyName ? `Zbiórka na powitanie ${pool.babyName} ` : 'Zbiórka na powitanie dziecka'}
                         </h1>
                         <p className="text-xl text-gray-600">
                             Organizator: {pool.creator.name || 'Anonim'}
@@ -228,7 +229,7 @@ export default async function PublicPoolPage(props: {
                                         <div className="flex-1 bg-gray-100 rounded-full h-8 relative overflow-hidden">
                                             <div
                                                 className="gradient-primary h-full rounded-full transition-all duration-500"
-                                                style={{ width: `${percentage}%` }}
+                                                style={{ width: `${percentage}% ` }}
                                             />
                                             <div className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-gray-700">
                                                 {count} {count === 1 ? 'osoba' : 'osób'}
