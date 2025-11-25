@@ -37,7 +37,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                                 <table width="100%" border="0" cellspacing="20" cellpadding="0" style="background: #fff; max-width: 600px; margin: auto; border-radius: 10px;">
                                     <tr>
                                         <td align="center" style="padding: 10px 0px; font-size: 22px; font-family: Helvetica, Arial, sans-serif; color: #6366f1;">
-                                            <img src="https://babybingo.online/logo.png" alt="BabyBingo" width="40" height="40" style="vertical-align: middle; margin-right: 8px;" />
+                                            <img src="https://babybingo.online/logo.png" alt="BabyBingo" width="60" height="60" style="vertical-align: middle; margin-right: 8px;" />
                                             <strong>BabyBingo</strong>
                                         </td>
                                     </tr>

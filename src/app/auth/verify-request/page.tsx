@@ -11,7 +11,7 @@ export default async function VerifyRequestPage(props: {
             <div className="max-w-md w-full">
                 <div className="text-center mb-8">
                     <Link href="/" className="text-3xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent inline-block">
-                        <Image src="/logo.png" alt="BabyBingo" width={40} height={40} className="inline-block" /> BabyBingo
+                        <Image src="/logo.png" alt="BabyBingo" width={60} height={60} className="inline-block" /> BabyBingo
                     </Link>
                 </div>
 
