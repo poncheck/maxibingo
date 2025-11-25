@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { auth, signOut } from '@/auth'
 
 export default async function LandingPage() {
@@ -12,7 +13,7 @@ export default async function LandingPage() {
           <div className="flex justify-between items-center h-16">
             <div className="flex items-center">
               <Link href="/" className="text-2xl font-bold bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
-                👶 BabyBingo
+                <Image src="/logo.png" alt="BabyBingo" width={40} height={40} className="inline-block" /> BabyBingo
               </Link>
             </div>
             <div className="flex items-center gap-4">
