@@ -119,11 +119,35 @@ export default async function PublicPoolPage(props: {
                 <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
                     <div className="text-center mb-8">
                         <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                            {pool.babyName ? `Zakłady na urodzenie ${pool.babyName}` : 'Zakłady na datę urodzenia'}
+                            {pool.babyName ? `Zbiórka na powitanie ${pool.babyName}` : 'Zbiórka na powitanie dziecka'}
                         </h1>
                         <p className="text-xl text-gray-600">
                             Organizator: {pool.creator.name || 'Anonim'}
                         </p>
+                    </div>
+
+                    {/* Goal Section */}
+                    <div className="bg-gradient-to-r from-green-50 to-emerald-50 border-2 border-green-300 rounded-xl p-6 mb-8">
+                        <div className="flex items-start gap-4">
+                            <div className="text-4xl">🎯</div>
+                            <div className="flex-1">
+                                <h2 className="text-2xl font-bold text-green-900 mb-2">{pool.goalTitle}</h2>
+                                {pool.goalDescription && (
+                                    <p className="text-green-800 mb-3">{pool.goalDescription}</p>
+                                )}
+                                {pool.goalCost && (
+                                    <div className="flex items-center gap-2">
+                                        <span className="text-sm font-semibold text-green-700">Szacowany koszt:</span>
+                                        <span className="text-lg font-bold text-green-900">{formatCurrency(pool.goalCost)}</span>
+                                    </div>
+                                )}
+                            </div>
+                        </div>
+                        <div className="mt-4 pt-4 border-t border-green-200">
+                            <p className="text-sm text-green-700">
+                                🎲 Osoba która trafi datę urodzenia realizuje ten cel w imieniu całej grupy!
+                            </p>
+                        </div>
                     </div>
 
                     {/* Stats Grid */}
@@ -145,7 +169,7 @@ export default async function PublicPoolPage(props: {
                             <div className="text-2xl font-bold text-purple-900">{pool.bets.length}</div>
                         </div>
                         <div className="bg-purple-50 rounded-xl p-6 text-center">
-                            <div className="text-sm text-purple-600 font-semibold mb-1">Pula</div>
+                            <div className="text-sm text-purple-600 font-semibold mb-1">Zebrano</div>
                             <div className="text-2xl font-bold text-purple-900">
                                 {formatCurrency(totalAmount)}
                             </div>
