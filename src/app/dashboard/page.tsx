@@ -41,6 +41,14 @@ export default async function DashboardPage() {
                             👶 MaxiBingo
                         </Link>
                         <div className="flex items-center gap-4">
+                            {session.user.isAdmin && (
+                                <Link
+                                    href="/admin/dashboard"
+                                    className="px-4 py-2 rounded-lg bg-purple-600 text-white hover:bg-purple-700 transition-smooth font-semibold"
+                                >
+                                    🔧 Panel Admina
+                                </Link>
+                            )}
                             <span className="text-gray-700">Cześć, {session.user.name || session.user.email}</span>
                             <form action={async () => {
                                 'use server'
