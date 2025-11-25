@@ -62,21 +62,21 @@ export default async function LandingPage() {
         <div className="max-w-7xl mx-auto text-center">
           <div className="animate-fade-in">
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight text-gray-900">
-              Zakłady na datę<br />
+              Zbiórki grupowe na<br />
               <span className="bg-gradient-to-r from-indigo-500 to-purple-600 bg-clip-text text-transparent">
-                urodzenia dziecka
+                powitanie dziecka
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto">
-              Stwórz zabawną pulę zakładów dla przyjaciół i rodziny.
-              Kto trafi datę porodu, zgarnia całą pulę! 🎉
+              Zbierz środki na cel związany z narodzinami dziecka.
+              Konkurs na datę urodzenia dodaje element zabawy! 🎉
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/dashboard/create"
                 className="px-8 py-4 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-lg font-semibold hover:shadow-2xl transform hover:-translate-y-1 transition-smooth"
               >
-                Utwórz Pulę Zakładów
+                Utwórz Zbiórkę
               </Link>
               <Link
                 href="#how-it-works"
@@ -123,9 +123,9 @@ export default async function LandingPage() {
               <div className="w-20 h-20 rounded-full gradient-primary text-white text-3xl font-bold flex items-center justify-center mx-auto mb-6">
                 1
               </div>
-              <h3 className="text-2xl font-bold mb-4">Utwórz Pulę</h3>
+              <h3 className="text-2xl font-bold mb-4">Utwórz Zbiórkę</h3>
               <p className="text-gray-600">
-                Rodzice tworzą pulę zakładów, ustawiają planowaną datę porodu i kwotę zakładu.
+                Określ cel zbiórki (np. sesja zdjęciowa), planowąną datę porodu i kwotę wpłaty.
               </p>
             </div>
 
@@ -136,7 +136,7 @@ export default async function LandingPage() {
               </div>
               <h3 className="text-2xl font-bold mb-4">Zaproś Znajomych</h3>
               <p className="text-gray-600">
-                Udostępnij link na Facebooku lub wyślij znajomym. Każdy typuje datę i wpłaca kwotę.
+                Udostępnij link. Każdy wpłaca na cel i typuje datę urodzenia (element zabawy).
               </p>
             </div>
 
@@ -145,9 +145,9 @@ export default async function LandingPage() {
               <div className="w-20 h-20 rounded-full gradient-accent text-white text-3xl font-bold flex items-center justify-center mx-auto mb-6">
                 3
               </div>
-              <h3 className="text-2xl font-bold mb-4">Zwycięzca Zgarnia Pulę!</h3>
+              <h3 className="text-2xl font-bold mb-4">Zwycięzca Realizuje Cel!</h3>
               <p className="text-gray-600">
-                Po narodzinach dziecka, osoba która trafiła datę (lub najbliższą) wygrywa całą pulę!
+                Po narodzinach, osoba która trafiła datę realizuje cel zbiórki. Nadwyżka pozostaje u zwycięzcy.
               </p>
             </div>
           </div>
