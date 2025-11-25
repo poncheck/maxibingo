@@ -18,6 +18,7 @@ export default function BetPage({ params }: { params: Promise<{ slug: string }> 
         const formData = new FormData(e.currentTarget)
         const predictedDate = formData.get('predictedDate') as string
         const isDonation = formData.get('isDonation') === 'on'
+        const userName = formData.get('userName') as string
 
         try {
             // First, get pool details
@@ -35,6 +36,7 @@ export default function BetPage({ params }: { params: Promise<{ slug: string }> 
                     poolId: pool.id,
                     predictedDate,
                     isDonation,
+                    userName,
                 }),
             })
 
@@ -86,6 +88,23 @@ export default function BetPage({ params }: { params: Promise<{ slug: string }> 
                                 {error}
                             </div>
                         )}
+
+                        <div>
+                            <label htmlFor="userName" className="block text-sm font-semibold text-gray-700 mb-2">
+                                Twoje imię *
+                            </label>
+                            <input
+                                type="text"
+                                id="userName"
+                                name="userName"
+                                required
+                                placeholder="np. Jan"
+                                className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent transition-smooth"
+                            />
+                            <p className="text-sm text-gray-500 mt-2">
+                                Będzie widoczne dla innych uczestników
+                            </p>
+                        </div>
 
                         <div>
                             <label htmlFor="predictedDate" className="block text-sm font-semibold text-gray-700 mb-2">

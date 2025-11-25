@@ -9,6 +9,7 @@ const createBetSchema = z.object({
     poolId: z.string(),
     predictedDate: z.string(),
     isDonation: z.boolean().optional().default(false),
+    userName: z.string().optional(),
 })
 
 export async function POST(req: NextRequest) {
@@ -20,7 +21,20 @@ export async function POST(req: NextRequest) {
         }
 
         const body = await req.json()
-        const { poolId, predictedDate, isDonation } = createBetSchema.parse(body)
+        const { poolId, predictedDate, isDonation, userName } = createBetSchema.parse(body)
+
+        // Update user name if provided and user doesn't have a name
+        if (userName) {
+            const currentUser = await prisma.user.findUnique({
+                where: { id: session.user.id }
+            })
+            if (!currentUser?.name) {
+                await prisma.user.update({
+                    where: { id: session.user.id },
+                    data: { name: userName }
+                })
+            }
+        }
 
         // Check if pool exists and is active
         const pool = await prisma.bettingPool.findUnique({
