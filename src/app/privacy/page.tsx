@@ -22,7 +22,7 @@ export default function PrivacyPage() {
                             <h2 className="text-2xl font-bold mb-4">1. Administrator Danych</h2>
                             <p>
                                 Administratorem danych osobowych przetwarzanych w ramach platformy MaxiBingo jest [Nazwa firmy/osoby],
-                                z siedzibą w [Adres], email: kontakt@pregenetor.com.
+                                z siedzibą w [Adres], email: kontakt@maxibingo.com.
                             </p>
                         </section>
 
@@ -30,9 +30,9 @@ export default function PrivacyPage() {
                             <h2 className="text-2xl font-bold mb-4">2. Jakie Dane Zbieramy</h2>
                             <p>Zbieramy następujące dane osobowe:</p>
                             <ul className="list-disc pl-6 space-y-2">
-                                <li><strong>Dane z konta:</strong> imię, nazwisko, adres email, zdjęcie profilowe (z Google/Facebook)</li>
+                                <li><strong>Dane z konta:</strong> imię, nazwisko, adres email, zdjęcie profilowe (z Google/Facebook/email)</li>
                                 <li><strong>Dane płatności:</strong> informacje o transakcjach (przetwarzane przez Stripe)</li>
-                                <li><strong>Dane zakładów:</strong> typowane daty, kwoty wpłat</li>
+                                <li><strong>Dane zbiórek:</strong> wpłaty na cele, typowane daty, cele zbiórek</li>
                                 <li><strong>Dane techniczne:</strong> adres IP, typ przeglądarki, czas wizyty</li>
                             </ul>
                         </section>
@@ -41,9 +41,10 @@ export default function PrivacyPage() {
                             <h2 className="text-2xl font-bold mb-4">3. Cel Przetwarzania Danych</h2>
                             <p>Przetwarzamy dane w następujących celach:</p>
                             <ul className="list-disc pl-6 space-y-2">
-                                <li>Świadczenie usług platformy (organizacja pul zakładów)</li>
-                                <li>Przetwarzanie płatności i wypłat</li>
-                                <li>Wysyłka powiadomień email o statusie puli</li>
+                                <li>Świadczenie usług platformy (organizacja zbiórek grupowych)</li>
+                                <li>Koordynacja realizacji celów zbiórek</li>
+                                <li>Przetwarzanie płatności i przekazywanie środków</li>
+                                <li>Wysyłka powiadomień email o statusie zbiórki</li>
                                 <li>Zapewnienie bezpieczeństwa i przeciwdziałanie oszustwom</li>
                                 <li>Analiza statystyk użytkowania platformy</li>
                                 <li>Komunikacja z użytkownikami</li>
@@ -68,7 +69,8 @@ export default function PrivacyPage() {
                                 <li><strong>Stripe</strong> - procesor płatności (zgodnie z ich polityką prywatności)</li>
                                 <li><strong>Resend</strong> - dostawca usług email</li>
                                 <li><strong>Vercel</strong> - hosting aplikacji</li>
-                                <li><strong>Innym uczestnikom puli</strong> - imię i typowana data (w ramach gry)</li>
+                                <li><strong>Innym uczestnikom zbiórki</strong> - imię i typowana data (w ramach konkursu)</li>
+                                <li><strong>Organizatorowi zbiórki</strong> - dane kontaktowe zwycięzcy w celu koordynacji realizacji celu</li>
                             </ul>
                             <p className="mt-2">
                                 Nie sprzedajemy ani nie udostępniamy danych osobowych podmiotom trzecim w celach marketingowych.
@@ -81,7 +83,7 @@ export default function PrivacyPage() {
                             <ul className="list-disc pl-6 space-y-2">
                                 <li><strong>Dane konta:</strong> do momentu usunięcia konta</li>
                                 <li><strong>Dane transakcji:</strong> 5 lat (wymóg księgowy)</li>
-                                <li><strong>Dane zakładów:</strong> przez cały czas trwania puli + 1 rok</li>
+                                <li><strong>Dane zbiórek:</strong> przez cały czas trwania zbiórki + 1 rok</li>
                             </ul>
                         </section>
 
@@ -98,7 +100,7 @@ export default function PrivacyPage() {
                                 <li><strong>Cofnięcia zgody</strong> - w dowolnym momencie</li>
                             </ul>
                             <p className="mt-4">
-                                Aby skorzystać z powyższych praw, skontaktuj się z nami: kontakt@pregenetor.com
+                                Aby skorzystać z powyższych praw, skontaktuj się z nami: kontakt@maxibingo.com
                             </p>
                         </section>
 
@@ -145,7 +147,7 @@ export default function PrivacyPage() {
                                 W razie pytań dotyczących przetwarzania danych osobowych, skontaktuj się z nami:
                             </p>
                             <p className="mt-2">
-                                Email: <strong>kontakt@pregenetor.com</strong>
+                                Email: <strong>kontakt@maxibingo.com</strong>
                             </p>
                             <p className="mt-4">
                                 Masz również prawo wniesienia skargi do organu nadzorczego - Prezesa Urzędu Ochrony Danych Osobowych.
