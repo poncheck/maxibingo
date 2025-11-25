@@ -69,7 +69,7 @@ export default async function PoolManagementPage(props: {
         return sum + parseFloat(payment.netAmount.toString())
     }, 0)
 
-    const shareUrl = `${process.env.NEXT_PUBLIC_APP_URL} /pool/${pool.slug} `
+    const shareUrl = `${process.env.NEXT_PUBLIC_APP_URL}/pool/${pool.slug}`
 
     // Group bets by date
     const betsByDate: Record<string, typeof pool.bets> = {}
@@ -115,12 +115,12 @@ export default async function PoolManagementPage(props: {
                         </div>
                         <span
                             className={`px - 4 py - 2 rounded - full text - sm font - semibold ${pool.status === 'ACTIVE'
-                                    ? 'bg-green-100 text-green-700'
-                                    : pool.status === 'CLOSED'
-                                        ? 'bg-yellow-100 text-yellow-700'
-                                        : pool.status === 'COMPLETED'
-                                            ? 'bg-blue-100 text-blue-700'
-                                            : 'bg-gray-100 text-gray-700'
+                                ? 'bg-green-100 text-green-700'
+                                : pool.status === 'CLOSED'
+                                    ? 'bg-yellow-100 text-yellow-700'
+                                    : pool.status === 'COMPLETED'
+                                        ? 'bg-blue-100 text-blue-700'
+                                        : 'bg-gray-100 text-gray-700'
                                 } `}
                         >
                             {pool.status === 'ACTIVE' && 'Aktywna'}
