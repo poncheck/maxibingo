@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import { auth, signOut } from '@/auth'
 import { redirect } from 'next/navigation'
 import { prisma } from '@/lib/prisma'
