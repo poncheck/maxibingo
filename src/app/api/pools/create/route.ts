@@ -8,6 +8,9 @@ const createPoolSchema = z.object({
     babyName: z.string().optional(),
     expectedDueDate: z.string(),
     betAmount: z.number().positive(),
+    goalTitle: z.string().min(1, 'Tytuł celu jest wymagany'),
+    goalDescription: z.string().optional(),
+    goalCost: z.number().positive().optional(),
 })
 
 export async function POST(req: NextRequest) {
@@ -37,6 +40,9 @@ export async function POST(req: NextRequest) {
                 babyName: validatedData.babyName,
                 expectedDueDate: new Date(validatedData.expectedDueDate),
                 betAmount: validatedData.betAmount,
+                goalTitle: validatedData.goalTitle,
+                goalDescription: validatedData.goalDescription,
+                goalCost: validatedData.goalCost,
                 slug,
             },
         })

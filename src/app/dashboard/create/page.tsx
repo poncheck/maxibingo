@@ -38,7 +38,7 @@ export default function CreatePoolPage() {
             const pool = await response.json()
             router.push(`/dashboard/pools/${pool.id}`)
         } catch (err) {
-            setError('Nie udało się utworzyć puli. Spróbuj ponownie.')
+            setError('Nie udało się utworzyć zbiórki. Spróbuj ponownie.')
         } finally {
             setLoading(false)
         }
@@ -66,8 +66,8 @@ export default function CreatePoolPage() {
             {/* Main Content */}
             <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold mb-2">Utwórz Pulę Zakładów</h1>
-                    <p className="text-gray-600">Wypełnij poniższe informacje, aby rozpocząć</p>
+                    <h1 className="text-4xl font-bold mb-2">Utwórz Zbiórkę Grupową</h1>
+                    <p className="text-gray-600">Zbierz środki na cel związany z narodzinami dziecka</p>
                 </div>
 
                 <div className="bg-white rounded-2xl shadow-xl p-8">
@@ -108,9 +108,63 @@ export default function CreatePoolPage() {
                             />
                         </div>
 
+                        <div className="bg-green-50 border-2 border-green-300 rounded-lg p-4">
+                            <h3 className="font-bold text-green-900 mb-3 text-lg">🎯 Cel Zbiórki</h3>
+
+                            <div className="space-y-4">
+                                <div>
+                                    <label htmlFor="goalTitle" className="block text-sm font-semibold text-gray-700 mb-2">
+                                        Tytuł celu *
+                                    </label>
+                                    <input
+                                        type="text"
+                                        id="goalTitle"
+                                        name="goalTitle"
+                                        required
+                                        placeholder="np. Profesjonalna sesja zdjęciowa noworodkowa"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-smooth"
+                                    />
+                                    <p className="text-sm text-gray-600 mt-1">
+                                        Na co będą przeznaczone zebrane środki?
+                                    </p>
+                                </div>
+
+                                <div>
+                                    <label htmlFor="goalDescription" className="block text-sm font-semibold text-gray-700 mb-2">
+                                        Opis celu (opcjonalny)
+                                    </label>
+                                    <textarea
+                                        id="goalDescription"
+                                        name="goalDescription"
+                                        rows={3}
+                                        placeholder="np. Sesja w studio z profesjonalnym fotografem, 50 zdjęć w albumie, zdjęcia rodzinne"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-smooth"
+                                    />
+                                </div>
+
+                                <div>
+                                    <label htmlFor="goalCost" className="block text-sm font-semibold text-gray-700 mb-2">
+                                        Szacowany koszt celu (PLN, opcjonalny)
+                                    </label>
+                                    <input
+                                        type="number"
+                                        id="goalCost"
+                                        name="goalCost"
+                                        min="0"
+                                        step="0.01"
+                                        placeholder="2000.00"
+                                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent transition-smooth"
+                                    />
+                                    <p className="text-sm text-gray-600 mt-1">
+                                        Ile w przybliżeniu kosztuje realizacja celu?
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
                         <div>
                             <label htmlFor="betAmount" className="block text-sm font-semibold text-gray-700 mb-2">
-                                Kwota zakładu (PLN) *
+                                Wpłata na osobę (PLN) *
                             </label>
                             <input
                                 type="number"
@@ -127,14 +181,14 @@ export default function CreatePoolPage() {
                             </p>
                         </div>
 
-                        <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
-                            <h3 className="font-semibold text-purple-900 mb-2">📋 Zasady gry:</h3>
-                            <ul className="text-sm text-purple-800 space-y-1">
-                                <li>• Każdy uczestnik typuje datę urodzenia (tylko raz)</li>
-                                <li>• Osoba która trafi dokładną datę wygrywa</li>
-                                <li>• Jeśli nikt nie trafi, wygrywa najbliższa data</li>
-                                <li>• Przy remisie pula jest dzielona równo</li>
-                                <li>• Platforma pobiera 1% prowizji</li>
+                        <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                            <h3 className="font-semibold text-blue-900 mb-2">📋 Jak to działa:</h3>
+                            <ul className="text-sm text-blue-800 space-y-1">
+                                <li>• Przyjaciele i rodzina wpłacają ustaloną kwotę</li>
+                                <li>• Każdy typuje datę urodzenia dziecka (element zabawy)</li>
+                                <li>• Osoba która trafi datę realizuje cel zbiórki</li>
+                                <li>• Nadwyżka (jeśli zostanie) pozostaje u zwycięzcy</li>
+                                <li>• Platforma pobiera 1% prowizji na koszty</li>
                             </ul>
                         </div>
 
@@ -143,7 +197,7 @@ export default function CreatePoolPage() {
                             disabled={loading}
                             className="w-full px-6 py-4 rounded-lg gradient-primary text-white font-semibold hover:shadow-lg transition-smooth disabled:opacity-50 disabled:cursor-not-allowed"
                         >
-                            {loading ? 'Tworzenie...' : 'Utwórz Pulę Zakładów'}
+                            {loading ? 'Tworzenie...' : 'Utwórz Zbiórkę'}
                         </button>
                     </form>
                 </div>
