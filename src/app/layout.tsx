@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -40,14 +39,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pl">
-      <body className={`${inter.className} min-h-screen antialiased bg-slate-50 text-slate-900`}>
-        {children}
-        <Script
-          src="http://192.168.88.44:3060/script.js"
-          data-website-id="ce07dbdf-ed3e-44ff-a85a-faece755af09"
-          strategy="afterInteractive"
-        />
-      </body>
+      <body className={`${inter.className} min-h-screen antialiased bg-slate-50 text-slate-900`}>{children}</body>
     </html>
   );
 }
