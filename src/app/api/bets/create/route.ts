@@ -87,8 +87,10 @@ export async function POST(req: NextRequest) {
                 },
             })
 
+            const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+
             return NextResponse.json({
-                checkoutUrl: `${process.env.NEXT_PUBLIC_APP_URL}/pool/${pool.slug}/success`,
+                checkoutUrl: `${appUrl}/pool/${pool.slug}/success`,
                 betId: bet.id,
                 bypassMode: true,
             })
