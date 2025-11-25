@@ -52,7 +52,7 @@ export default async function DashboardPage() {
                             <span className="text-gray-700">Cześć, {session.user.name || session.user.email}</span>
                             <form action={async () => {
                                 'use server'
-                                await signOut()
+                                await signOut({ redirectTo: '/auth/signout' })
                             }}>
                                 <button
                                     type="submit"
