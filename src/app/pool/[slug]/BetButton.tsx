@@ -24,7 +24,7 @@ export default function BetButton({
             onClick={handleClick}
             className="px-8 py-4 rounded-xl gradient-primary text-white text-lg font-semibold hover:shadow-2xl transform hover:-translate-y-1 transition-smooth"
         >
-            🎯 Postaw Zakład
+            💝 Wesprzyj Zbiórkę
         </button>
     )
 }

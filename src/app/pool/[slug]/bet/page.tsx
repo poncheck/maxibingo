@@ -75,8 +75,8 @@ export default function BetPage({ params }: { params: Promise<{ slug: string }> 
             {/* Main Content */}
             <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
                 <div className="text-center mb-8">
-                    <h1 className="text-4xl font-bold mb-2">Postaw Zakład</h1>
-                    <p className="text-gray-600">Wybierz datę, którą typujesz</p>
+                    <h1 className="text-4xl font-bold mb-2">Wesprzyj Zbiórkę</h1>
+                    <p className="text-gray-600">Wpłać na cel i weź udział w konkursie na datę urodzenia</p>
                 </div>
 
                 <div className="bg-white rounded-2xl shadow-xl p-8">
