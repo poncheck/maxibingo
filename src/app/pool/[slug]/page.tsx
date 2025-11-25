@@ -138,7 +138,7 @@ export default async function PublicPoolPage(props: {
                                 {pool.goalCost && (
                                     <div className="flex items-center gap-2">
                                         <span className="text-sm font-semibold text-green-700">Szacowany koszt:</span>
-                                        <span className="text-lg font-bold text-green-900">{formatCurrency(pool.goalCost)}</span>
+                                        <span className="text-lg font-bold text-green-900">{formatCurrency(Number(pool.goalCost))}</span>
                                     </div>
                                 )}
                             </div>
