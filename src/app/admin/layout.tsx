@@ -43,6 +43,12 @@ export default async function AdminLayout({
                                 >
                                     Użytkownicy
                                 </Link>
+                                <Link
+                                    href="/admin/winners"
+                                    className="px-3 py-2 rounded-md hover:bg-gray-800 transition-smooth"
+                                >
+                                    Wygrani
+                                </Link>
                             </div>
                         </div>
                         <div className="flex items-center gap-4">
